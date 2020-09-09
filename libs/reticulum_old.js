@@ -1,4 +1,5 @@
-/*! Reticulum - v2.1.2
+/// <reference path="typings/threejs/three.d.ts"/>
+/*! Reticulum - v2.0.2 - 2015-12-17
  * http://skezo.github.io/examples/basic.html
  *
  * Copyright (c) 2015 Skezo;
@@ -35,7 +36,7 @@ var Reticulum = (function () {
     }
 
     //Vibrate
-    var vibrate = navigator.vibrate ? navigator.vibrate.bind(navigator) : function(){};
+    // var vibrate = navigator.vibrate ? navigator.vibrate.bind(navigator) : function(){};
 
     //Fuse
     fuse.initiate = function( options ) {
@@ -43,7 +44,7 @@ var Reticulum = (function () {
 
         this.visible        = parameters.visible            !== false; //default to true;
         this.globalDuration = parameters.duration           ||  2.5;
-        this.vibratePattern = parameters.vibrate            ||  100;
+        this.vibratePattern = parameters.vibrate            ||  0;
         this.color          = parameters.color              ||  0x00fff6;
         this.innerRadius    = parameters.innerRadius        ||  reticle.innerRadiusTo;
         this.outerRadius    = parameters.outerRadius        ||  reticle.outerRadiusTo;
@@ -52,9 +53,9 @@ var Reticulum = (function () {
         this.thetaSegments  = 32;
         this.thetaStart     = Math.PI/2;
         this.duration       = this.globalDuration;
-        this.timeDone   = false;
+
         //var geometry = new THREE.CircleGeometry( reticle.outerRadiusTo, 32, Math.PI/2, 0 );
-        var geometry = new THREE.RingGeometry( this.innerRadius, this.outerRadius, this.thetaSegments, this.phiSegments, this.thetaStart, Math.PI/2 );
+        var geometry = new THREE.RingGeometry( this.innerRadius, this.outerRadius, this.thetaSegments, this.phiSegments, this.thetaStart, 0 );
 
         //Make Mesh
         this.mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( {
@@ -81,7 +82,6 @@ var Reticulum = (function () {
     fuse.out = function() {
         this.active = false;
         this.mesh.visible = false;
-        this.timeDone = false;
         this.update(0);
     }
 
@@ -94,7 +94,7 @@ var Reticulum = (function () {
 
     fuse.update = function(elapsed) {
 
-        if(!this.active || fuse.timeDone) return;
+        if(!this.active) return;
 
         //--RING
         var gazedTime = elapsed/this.duration;
@@ -105,9 +105,10 @@ var Reticulum = (function () {
         var radiusStep = ( ( this.outerRadius - this.innerRadius ) / this.phiSegments );
         var count = 0;
 
-        for ( var i = 0; i <= this.phiSegments; i ++ ) {
+        for ( var i = 0; i < this.phiSegments + 1; i ++ ) {
 
-            for ( var o = 0; o <= this.thetaSegments; o++ ) {
+            for ( var o = 0; o < this.thetaSegments + 1; o++ ) {
+
                 var vertex = vertices[ count ];
                 var segment = this.thetaStart + o / this.thetaSegments * thetaLength;
                 vertex.x = radius * Math.cos( segment );
@@ -139,7 +140,7 @@ var Reticulum = (function () {
         this.visible            = parameters.visible            !== false; //default to true;
         this.restPoint          = parameters.restPoint          || settings.camera.far-10.0;
         this.globalColor        = parameters.color              || 0xcc0000;
-        this.innerRadius        = parameters.innerRadius        || 0.0004;
+        this.innerRadius        = parameters.innerRadius        || 0.0001;
         this.outerRadius        = parameters.outerRadius        || 0.003;
         this.worldPosition      = new THREE.Vector3();
         this.ignoreInvisible    = parameters.ignoreInvisible    !== false; //default to true;
@@ -148,10 +149,10 @@ var Reticulum = (function () {
         this.innerRadiusTo      = parameters.hover.innerRadius  || 0.02;
         this.outerRadiusTo      = parameters.hover.outerRadius  || 0.024;
         this.globalColorTo      = parameters.hover.color        || this.color;
-        this.vibrateHover       = parameters.hover.vibrate      || 50;
+        this.vibrateHover       = parameters.hover.vibrate      || 0;
         this.hit                = false;
         //Click
-        this.vibrateClick       = parameters.click.vibrate      || 50;
+        this.vibrateClick       = parameters.click.vibrate      || 0;
         //Animation options
         this.speed              = parameters.hover.speed        || 5;
         this.moveSpeed          = 0;
@@ -308,7 +309,6 @@ var Reticulum = (function () {
 
         }
         reticle.mesh.visible = showReticle;
-
     };
 
     var detectHit = function() {
@@ -416,7 +416,7 @@ var Reticulum = (function () {
 
         //Reticle
         //Vibrate
-        vibrate( reticle.vibrateHover );
+        // vibrate( reticle.vibrateHover );
         //Does object have an action assigned to it?
         if (threeObject.onGazeOver != null) {
             threeObject.onGazeOver();
@@ -445,12 +445,9 @@ var Reticulum = (function () {
         }
 
         //Fuse
-       
-        if( gazeTime >= fuse.duration && !fuse.active  && !fuse.timeDone) {
+        if( gazeTime >= fuse.duration && !fuse.active ) {
             //Vibrate
-            fuse.timeDone=true;
-            fuse.mesh.visible = false;
-            vibrate( fuse.vibratePattern );
+            // vibrate( fuse.vibratePattern );
             //Does object have an action assigned to it?
             if (threeObject.onGazeLong != null) {
                 threeObject.onGazeLong();
@@ -496,7 +493,7 @@ var Reticulum = (function () {
             threeObject.reticulumData.gazeable = true;
             //Reticle
             threeObject.reticulumData.reticleHoverColor = null;
-            if(parameters.reticleHoverColor) {
+            if (parameters.reticleHoverColor) {
                 threeObject.reticulumData.reticleHoverColor = new THREE.Color(parameters.reticleHoverColor);
             }
             //Fuse
@@ -542,8 +539,9 @@ var Reticulum = (function () {
                 return;
             }
             initiate(c, o);
+        },
+        getReticle: function() {
+            return reticle;
         }
     };
 })();
-
-export default Reticulum;

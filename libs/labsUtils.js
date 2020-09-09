@@ -47,8 +47,8 @@ LabsUtils = function() {
         hoverChange: 5
     };
     this.reticleColors = {
-        pink: 0xff00e7,
-        basic: 0x00fff6,
+        pink: 0xF9Ec8D,
+        basic: 0xF9Ec8D,
         blue: {
             light: 0x9DB7DA,
             dark: 0x2E568E
@@ -63,7 +63,7 @@ LabsUtils = function() {
         },
         yellow: {
             light: 0xFFD087,
-            dark: 0xD89939,
+            dark: 0xBBB16B,
             bright: 0xfdff00
         },
         purple: 0x660066
@@ -78,7 +78,7 @@ LabsUtils = function() {
     };
     this.reticleSizes = {
         normal: {
-            inner: 0.001,
+            inner: 0.003,
             outer: 0.006
         }, 
         hover: {
@@ -159,36 +159,39 @@ LabsUtils = function() {
     };
 
     this.radicalMembers = [
-        {name: 'alvaro', position: {x: -5.8, y: 1.6, z: -2.4}},
-        {name: 'sergio', position: {x: -6.4, y: 1.6, z: -4.2}},
-        {name: 'adrian', position: {x: -5.8, y: 1.6, z: -5.4}},
-        {name: 'ira', position: {x: -4, y: 1.6, z: -6}},
-        {name: 'salva', position: {x: -4, y: 1.6, z: -2.2}},
-        {name: 'jota', position: {x: -3.6, y: 1.4, z: -3.8}}
+        {name: 'jota', position: {x: -3, y: 0.7, z: -0.9}},
+        {name: 'sergio', position: {x: -3.5, y: 0.7, z: -1.9}},
+        {name: 'adrian', position: {x: -3, y: 0.7, z: -3}},
+        {name: 'ira', position: {x: -2, y: 0.7, z: -3}},
+        {name: 'salva', position: {x: -2, y: 0.7, z: -0.9}}
     ];
     this.researchMembers = [
-        {name: 'mario', position: {x: -6, y: 1.6, z: 2.2}},
-        {name: 'fernando', position: {x: -6, y: 1.6, z: 0.7}},
-        {name: 'ricardo', position: {x: -4.6, y: 1.6, z: 0.2}},
-        {name: 'enrique', position: {x: -3.6, y: 1.6, z: -0.3}},
-        {name: 'samuel', position: {x: -3.4, y: 1.6, z: 2.4}}
+        {name: 'mario', position: {x: -3.4, y: 0.7, z: 1.1}},
+        {name: 'fernando', position: {x: -3.4, y: 0.7, z: 0}},
+        {name: 'ricardo', position: {x: -2.4, y: 0.7, z: 0}},
+        {name: 'enrique', position: {x: -1.4, y: 0.7, z: 0}},
+        {name: 'samuel', position: {x: -1.4, y: 0.7, z: 1.1}}
     ];
     this.jefesAndVenturesMembers = [
-        {name: 'carlosm', position: {x: -6, y: 1.6, z: 6}},
-        {name: 'lucas', position: {x: -6, y: 1.6, z: 4.5}, ventureLogo: 'theJuice'},
-        {name: 'nieves', position: {x: -4.6, y: 1.6, z: 6.2}},
-        {name: 'jesus', position: {x: -4.6, y: 1.6, z: 4}, ventureLogo: 'theJuice'},
-        {name: 'carlosg', position: {x: -3.6, y: 1.6, z: 6.3}, ventureLogo: 'fasterCity'},
-        {name: 'marian', position: {x: -3.2, y: 1.3, z: 5.5}, ventureLogo: 'fasterCity'},
-        {name: 'pablo', position: {x: -3.6, y: 1.4, z: 4}}
+        {name: 'carlosm', position: {x: -3.4, y: 0.7, z: 3.2}},
+        {name: 'lucas', position: {x: -3.4, y: 0.7, z: 2}, ventureLogo: 'theJuice'},
+        {name: 'nieves', position: {x: -2.4, y: 0.7, z: 3.2}},
+        {name: 'jesus', position: {x: -2.4, y: 0.7, z: 2}, ventureLogo: 'theJuice'},
+        {name: 'carlosg', position: {x: -1.4, y: 0.7, z: 3.2}, ventureLogo: 'fasterCity'},
+        {name: 'marian', position: {x: -1.4, y: 0.7, z: 2}, ventureLogo: 'fasterCity'}
     ];
     this.comunicacionMembers = [
-        {name: 'marta', position: {x: -5.2, y: 1.6, z: 12}},
-        {name: 'javi', position: {x: -4.1, y: 1.6, z: 13.9}},
-        {name: 'patri', position: {x: -4.1, y: 1.6, z: 11.7}},
-        {name: 'ade', position: {x: -3, y: 1.6, z: 14.1}},
-        {name: 'kat', position: {x: -3, y: 1.6, z: 11.6}}
+        {name: 'marta', position: {x: -5.2, y: 0.7, z: 12}},
+        {name: 'javi', position: {x: -4.1, y: 0.7, z: 13.9}},
+        {name: 'patri', position: {x: -4.1, y: 0.7, z: 11.7}},
+        {name: 'ade', position: {x: -3, y: 0.7, z: 14.1}},
+        {name: 'kat', position: {x: -3, y: 0.7, z: 11.6}}
     ];
+    this.cameraPositions = {
+        radical: { x: -0.3, y: 1, z: -2 },
+        research: { x: -0.3, y: 1, z: 0.5 },
+        design: { x: -0.3, y: 1, z: 2.6 }
+    }
     this.mediaControls = [
         {name: this.mediaNameStop, path: 'stop.png', position: {x: 0, y: 0, z: -1}},
         {name: this.mediaNamePause, path: 'pause.png', position: {x: 0, y: 0, z: -1}},

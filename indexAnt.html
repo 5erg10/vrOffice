@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" class="demo-3">
+<head>
+    <title>VRLabs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+</head>
+<body class="darkBack">
+<div id="allowVideoScreen" class="allowVideo" style="display: none">
+  <div class="videoInstructions">VRLabs needs permissions to play videos</div>
+    <div id="acceptButton" class="acceptButton">Accept</div>
+</div>
+<iframe id="youtubeVideo" width="0" height="0" style="position: absolute; display: none;" src=""></iframe>
+<canvas id="fireWorks" class="fireworks"></canvas>
+<div id="logoBox" class="mainSection">
+    <section>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 528.07 70.33">
+            <g id="beevaLogo">
+                <path id="letter-O" fill="#999999"
+                      d="M1700.33,474.27a34.07,34.07,0,0,0-38.21,33l9.7,0.24a24.39,24.39,0,0,1,30.07-23.1c8.47,1.94,16.74,10.64,18.26,19.2a24.39,24.39,0,0,1-24.58,28.87l-0.24,9.7A34.06,34.06,0,0,0,1700.33,474.27Z"/>
+                <rect id="O-dot-1" fill="#ffffff" x="29.52" y="30.73"/>
+                <rect id="O-dot-2" fill="#ffffff" x="20.31" y="39.9" width="9.21" height="9.21"/>
+                <rect id="O-dot-3" fill="#ffffff" x="11.11" y="49.11" width="9.21" height="9.21"/>
+                <path id="letter-P" fill="#ffffff"
+                      d="M1777.44,474.17c-10.31,0-20.92.1-31.23,0.1v67.47H1757V484.09h20.43c17.74,0,17.83,27,0,27h-7V521h7C1809.73,520.82,1809.64,474.17,1777.44,474.17Z"/>
+                <path id="letter-E1" fill="#ffffff" d="M1818.79,531.13v10.6h49.83v-10.6h-49.83Z"/>
+                <path id="letter-E2" fill="#ffffff" d="M1866.79,513V503h-37.21V484.77h38.75V474.26h-49.54V513h48Z"/>
+                <polygon id="letter-N" fill="#ffffff"
+                         points="270.23 49.34 270.23 49.43 269.53 48.56 231.96 1.43 223.67 1.43 223.67 68.91 234.56 68.91 234.56 21.28 256.48 48.56 256.48 48.56 272.76 68.82 272.76 52.49 270.23 49.34"/>
+                <path id="letter-L" fill="#999999" d="M1947.19,474.26v57.45h34.05v10h-46.36V474.26h12.31Z"/>
+                <polygon id="letter-A" fill="#999999"
+                         points="369.45 1.43 357.69 1.43 363.57 12.8 377.84 44.9 355.55 44.9 355.79 44.9 355.55 44.9 349.31 44.9 349.31 44.9 338.19 44.9 327.43 68.91 338.9 68.91 345.26 54.73 381.79 54.73 388.25 68.9 399.72 68.9 369.45 1.43"/>
+                <path id="letter-B" fill="#999999"
+                      d="M2113.32,506.94c6.36-2.6,9.35-7.71,9.35-13.4,0-13.4-10.12-19.28-22.94-19.28h-4V484h4c8.1,0,12.24,5,12.24,9.74,0,5.3-4,8.48-12.14,8.48h-4.1v9.64h4.1c6.17,0,14.17,3.28,14.17,10.51,0,7.42-8.29,9.35-14.27,9.35h-4v10h4c13.3,0,25.06-4.53,25.06-19.28C2124.79,517.35,2121.42,509.35,2113.32,506.94Z"/>
+                <path id="letter-S" stroke="#999999" fill="#999999"
+                      d="M2163.1,501.43c-8.87-1.25-16.39-3.08-16.39-9.64,0-4.54,3.24-7.74,8.3-9.25v-9.71c-9.93,1.76-19.08,7.45-19,18.77,0,14.46,12.72,17.83,26.12,19.66,9.45,1.25,17.25,3.76,17.25,11.08,0,8.48-9,11.18-17.06,11.18-7.81,0-16.19-2.89-21-11.08l-8.1,5.4c6.17,11.37,16.1,15.32,29,15.32,14.07,0,27.86-5.69,28-20.82S2177,503.36,2163.1,501.43Z"/>
+                <path id="letter-B-beeva" fill="#ffffff"
+                      d="M2069.62,537.82c0-1.63.81-3,2.52-3a2,2,0,0,1,1.85,1.34,2.25,2.25,0,0,1,2.15-1.62c1.92,0,2.48,1.61,2.48,3.31v3.94h-9v-3.94Zm3.87,2.82v-2.87c0-1.08-.4-1.87-1.34-1.87s-1.52.81-1.52,1.92v2.82h2.86Zm4.08,0v-2.82c0-.94-0.24-2.19-1.47-2.19s-1.6,1.16-1.6,2.14v2.87h3.06Z"/>
+                <path id="letter-Y-beeva" fill="#ffffff"
+                      d="M2069.66,533.4h0V532l4.27-2.7-4.27-2.77V525.2h0l5.32,3.55h3.66v1.16H2075Z"/>
+                <path id="letter-B2-beeva" fill="#ffffff"
+                      d="M2069.62,515.71c0-1.63.81-3,2.52-3A2,2,0,0,1,2074,514a2.25,2.25,0,0,1,2.15-1.62c1.92,0,2.48,1.61,2.48,3.31v3.94h-9v-3.94Zm3.87,2.82v-2.87c0-1.08-.4-1.87-1.34-1.87s-1.52.81-1.52,1.92v2.82h2.86Zm4.08,0v-2.82c0-.94-0.24-2.19-1.47-2.19s-1.6,1.16-1.6,2.14v2.87h3.06Z"/>
+                <path id="letter-E-beeva" fill="#ffffff"
+                      d="M2069.62,509.9v-6.33h1v5.23h2.82v-5h1v5h3.05v-5.43h1.07v6.54h-9Z"/>
+                <path id="letter-E2-beeva" fill="#ffffff"
+                      d="M2069.62,500.88v-6.33h1v5.23h2.82v-5h1v5h3.05v-5.43h1.07v6.54h-9Z"/>
+                <path id="letter-V-beeva" fill="#ffffff"
+                      d="M2069.62,491.55l7.7-3.08-7.7-3.1v-1.24l9,3.72v1.21l-9,3.73v-1.25Z"/>
+                <path id="letter-A-beeva" fill="#ffffff"
+                      d="M2069.62,478.31l9-4v1.21l-2,.89v5.15l2,0.88v1.22l-9-4v-1.26Zm1.13,0.63,4.87,2.14V476.8Z"/>
+            </g>
+        </svg>
+    </section>
+</div>
+<div id="container" class="displayOff">
+</div>
+<script type="text/javascript" src="libs/jquery-2.1.0.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>-->
+<script type="text/javascript" src="libs/greensock/src/uncompressed/TweenMax.js"></script>
+
+<!-- WebVR polyfill and manager -->
+<script src="https://skezo.github.io/Reticulum/examples/js/lib/webvr-polyfill.js"></script>
+<script src="https://skezo.github.io/Reticulum/examples/js/lib/webvr-manager.js"></script>
+
+<script type="text/javascript" src="libs/three78.js"></script>
+<script type="text/javascript" src="libs/progressbar.js"></script>
+<script type="text/javascript" src="libs/DDSLoader.js"></script>
+<script type="text/javascript" src="libs/MTLLoader.js"></script>
+<script type="text/javascript" src="libs/OBJLoader.js"></script>
+<script type="text/javascript" src="libs/ExplodeModifier.js"></script>
+<script type="text/javascript" src="libs/SPE.min.js"></script>
+<script type="text/javascript" src="libs/videoTexture.js"></script>
+<script type="text/javascript" src="libs/DeviceOrientation.js"></script>
+<script type="text/javascript" src="libs/StereoEffect.js"></script>
+<script type="text/javascript" src="libs/tween.js"></script>
+<script type="text/javascript" src="libs/OrbitControls.js"></script>
+<script type="text/javascript" src="libs/labsUtils.js"></script>
+<script type="text/javascript" src="libs/SubdivisionModifier.js"></script>
+<script src="./libs/reticulum.js"></script>
+<script src="./scene/main.js"></script>
+<script type="x-shader/x-vertex" id="vertexshader">
+  uniform float amplitude;
+  attribute vec3 customColor;
+  attribute vec3 displacement;
+  varying vec3 vNormal;
+  varying vec3 vColor;
+  void main() {
+    vNormal = normal;
+    vColor = customColor;
+    vec3 newPosition = position + normal * amplitude * displacement;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );
+  }
+</script>
+
+<script type="x-shader/x-fragment" id="fragmentshader">
+  varying vec3 vNormal;
+  varying vec3 vColor;
+  void main() {
+    const float ambient = 0.4;
+    vec3 light = vec3( 1.0 );
+    light = normalize( light );
+    float directional = max( dot( vNormal, light ), 0.0 );
+    gl_FragColor = vec4( ( directional + ambient ) * vColor, 1.0 );
+  }
+</script>
+</body>
+</html>
